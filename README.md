@@ -21,6 +21,9 @@ docker run -d \
   --link redis:redis \
   rotorocloud/rocket-counter
 ```
+### Зачем --link и почему в Compose он не нужен?
+### Как в Compose обеспечивается сетевое имя сервиса для обращения из другого сервиса?
+
 ![Проверка создания rocketcounter](screenshots/s2.png)
 
 Заходим на localhost:8080 и видим кнопку "Get a rocket". После клика 
@@ -49,7 +52,7 @@ docker compose ps
 ```
 ![Проверка на UP](screenshots/s5.png)
 ![Проверка на хосте](screenshots/s6.png)
-
+### Чем отличается image от build?
 
 
 ## Часть 3. Масштабирование приложения
@@ -70,7 +73,7 @@ docker compose ps
 ![Проверка на хосте](screenshots/s9.png)
 ![Проверка на втором хосте](screenshots/s10.png)
 ### 32768 - 60999
-
+### Почему нельзя масштабировать сервис с публикацией фиксированного порта на одном хосте? Способы обхода
 
 
 ## Часть 4. Полное уничтожение стека
@@ -80,3 +83,4 @@ docker compose down -v
 docker ps -a | Select-String -Pattern "redis|rocketcounter"
 docker network ls | Select-String -Pattern "rocketcounter"
 ```
+### Что делает `docker compose down -v` и что делает флаг -v?
